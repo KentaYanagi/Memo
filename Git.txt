@@ -11,7 +11,7 @@ git add 選択したい変更のあるfilename
 
 4.選択したファイルをメッセージ付きで記録する(コミットする).共有する準備完了
 この時のメッセージはコミットメッセージという.
-git commit -m Message
+git commit -m "Message"
 
 5.リモート(リモートリポジトリ)にファイルをアップロードする
 
@@ -61,8 +61,8 @@ $ git status ファイルをaddしたのか把握する
     $
 
 コミットメッセージの書き方
-間違例  git commit -m 修正
-正解例  git commit -m サブタイトルの修正
+間違例  git commit -m "修正"
+正解例  git commit -m "サブタイトルの修正"
 
 $ git log   コミットメッセージ履歴の参照
 (eg)
@@ -79,4 +79,18 @@ $ git log -p 変更内容のログを確認する
 *Qを押すと特殊な表示モードを閉じることができる
 
 
-$ echo 
+Git Page How-to
+1.Clone the repository
+Go to the folder where you want to store your project,
+and clone the new repository
+~ $ git clone https://github.com/username/username.github.io
+2.Hello World
+Enter the project folder and add an index.html file
+~ $ cd username.github.io
+~ $ echo "Hellow World" index.html
+3.Push it
+Add, commit, and push your changes
+~ $ git add --all
+~ $ git commit -m "Initial commit"
+~ $ git push -u origin main
+4.Fire up a browser and go to https://username.github.io
