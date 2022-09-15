@@ -1,0 +1,82 @@
+1まずターミナルでGitを初期導入する
+$ git init
+
+2.ターミナルに以下のように表示される
+mysite $ git init
+Initialized empty Git repe/first/mysite/.git/
+mysite $
+
+3.共有したいファイルを選択する
+git add 選択したい変更のあるfilename
+
+4.選択したファイルをメッセージ付きで記録する(コミットする).共有する準備完了
+この時のメッセージはコミットメッセージという.
+git commit -m "Message"
+
+5.リモート(リモートリポジトリ)にファイルをアップロードする
+
+6.リモートリポジトリ登録
+git remote add リモートリポジトリ名 URL
+
+7.6で登録したリモートリポジトリにプッシュ(アップロードのこと)する
+git push リモートリポジトリ名 master
+
+8.6で登録したリモートリポジトリからプル(ダウンロードのこと)する
+git pull リモートリポジトリ名 master
+
+まとめ　add -> commit -> push -> pull ->の循環
+
+実践版
+共同開発では自分が行った変更を「把握」して，
+その変更の中で相手に共有すべき部分を「選択」できることが大事
+<-完成したコードと未完成のコードを見分けて，共有する範囲を制限したい
+
+$ git status   自分が変更したファイル名を見つける
+(eg)
+    $ git status
+        ...
+      modified: index.html      <-赤文字
+    no changes added to commit (use ...)
+
+$ git diff   自分の変更内容を把握する
+(eg)
+    $ git diff
+        ...
+     <head>
+     <body>
+    - 削除されたコード(以前のコード)   <-赤文字
+    + 追加せれたコード(新規のコード)   <-緑文字
+     </body>
+     </html>
+    $
+この作業により，選択すべきファイルを見つけることができる
+
+$ git status ファイルをaddしたのか把握する
+(eg)
+    $ git status
+        ...
+    modified: index.html          <-緑(addされたファイル)
+        ...
+    modified: stylesheet.css      <-赤(変更後にaddされてない)
+    $
+
+コミットメッセージの書き方
+間違例  git commit -m "修正"
+正解例  git commit -m "サブタイトルの修正"
+
+$ git log   コミットメッセージ履歴の参照
+(eg)
+$ git log 
+commit ad73be89f618b26fc16...
+    ...
+    Change subtitle color
+commit 9beae15a3837b847be...
+    ...
+    Change stylesheet.css
+$
+
+$ git log -p 変更内容のログを確認する
+*Qを押すと特殊な表示モードを閉じることができる
+
+
+$ echo 

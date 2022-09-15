@@ -1,0 +1,66 @@
+Command Line UNIXコマンド(Mac,Linux)
+touch ファイル名.拡張子 空ファイルの作成
+cat ファイル名.拡張子 ファイルの中身の表示
+    Errorexamples
+    ~ $ cat example.txt
+    cat: example.txt: No such file or directory
+
+    Tabkey: 途中の文言の補完ができる
+mkdir directoryname  mkdir = make directory
+directory = コマンドラインにおけるファイルのこと
+cd directoryname  cd = change directory 指定した一つ階層下のディレクトリに移動
+directoryname $  $の左側の文字がcurrent directory
+File Structure
+ file(rootdirectory:1番親の階層) -- home -- ipstap -- shinya -- index.txt
+            /                     home     iptap    shinnya   index.txt
+
+pwd pwd = point working directory
+eg)
+~ $ pwd
+/home/ipstap
+
+ls ls(エルエス) = list 
+current directory内部のファイル，ディレクトリが一覧で表示
+$ ls
+index.txt shinya
+
+ls -l ファイルやディレクトリの詳細も同時に表示
+
+ls -a 隠しファイルも含めファイルやディレクトリを全て表示する
+
+ls la 隠しファイルを含む全てのファイルやディレクトリの詳細を表示
+
+*隠しファイルとは通常では表示されないファイルやディレクトリ
+重要なファイルをユーザが勝手にいじれないようになっている
+名前の前に.がついているファイルやディレクトリ
+
+cd .. ..(一つ親のdirectory) 一つ親のディレクトリに移動
+
+cd  ホームディレクトリ(~)に移動
+cd ~/ ホームディレクトディレクト
+eg)
+shinya $ pwd
+/home/ipstap/shinya
+shinya $ cd
+~ $ pwd
+/home/ipstap
+~ $
+*homeディレクトリとは限らない
+
+mv 移動するfilename 移動先directoryname 
+mv = move ファイルを指定したディレクトリに移動する
+~ $ mv index.txt bigenner
+~ $
+
+mv 移動するdirectoryname 移動先directoryname
+指定したディレクトリを指定したディレクトリに移動
+
+$ mv 現在のfilename 新しいfilename　　　　　　　名称変更
+$ mv 現在のdirectoryname 新しいdirectoryname 名称変更
+
+$ cp コピーするfilename 新しいfilename cp = copy
+$ cp -r コビーするdirectoryname 新しいdirectoryname
+
+$rm 削除するfilename rm = remove ファイルの削除
+$rm -r 削除するdirectory         ディレクトリの削除
+~$ ↑ ↑は以前入力したコマンドの表示

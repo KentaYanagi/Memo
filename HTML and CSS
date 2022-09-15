@@ -1,0 +1,247 @@
+1タグ付 開始タグと終了タグが必要
+<h1> 見出し  h = heading
+<a> リンク
+<a href="リンク先のURL">リンクに表示されてる文字</a>
+<p> 段落(<p>要素) p = Paragraph
+*<h2>や<p>タグで囲んだテキストは改行される
+<img> 画像(<img>要素) img = image
+<img src="https://prog-8.com/images/family.jpg">
+*テキストを囲むことがないため終了タグ不要
+<li> リスト
+<ul>                   親要素
+    <li>HTML</li>      子要素 インデント
+    <li>PHP</li>       子要素 インデント
+    <li>Ruby</li>      子要素 インデント
+</ul>                  親要素
+<ul> 箇条書き黒点 <li>要素を親要素として入れ子
+<ol> 箇条書き番号 <li>要素を親要素として入れ子
+2コメント
+<!-- コメントしたい文言 -->
+
+3属性の書き方
+開始タグの中に記述する   値を指定する際は”を用いる
+(eg) リンクで用いるhref属性
+<a href="https://prog-8.com">     <-aとhrefの間の間隔は絶対
+    Progate
+</a>
+
+HTML 要素の導入 文字や図の要素を決定
+CSS  デザイン   要素の大きさ，配置を決定
+
+CSS基礎
+HTMLとは別のファイルに記述
+どこ(セレクタ)の何(プロパティ)をどうするのか指定可能
+h1 {
+    color: red; インデント
+    font-size: 40px;
+    font-family: sana-serif;
+    width: 500px;
+    height: 80px;
+    background-color: #9de8ae;
+}
+img {
+    width: 500px;
+    height: 200px;
+}
+
+1プロパティ
+colorプロパティ       色           #0000ff
+font-sizeプロパティ   文字の大きさ   10px
+font-familyプロパティ フォント名     serif "Avenir Next"
+                                    スペースがあるときは"""
+background-colorプロパティ 背景色 #dddddd これは省略可#ddd #ffd800
+widthプロパティ  図，テキストボックスの幅  500px
+heightプロパティ 図，テキストボックスの高  20px
+
+2どうするか
+明朝体
+font-family: serif;
+font-family: YuMincho;
+ゴシック体
+font-family: sans-serif;
+font-family: "Lucida Grande"
+
+red = #ff0000   主要な色は16進数のカラーコード不要
+blue = #0000ff
+
+
+3コメント
+/* コメントする文章 */
+
+4部分適用
+通常だと全部に適応
+index.html
+<ul>
+    <li>HTML</li>
+    <li>PHP</li>
+    <li>Ruby</li>
+</ul> 
+
+stylesheet.css
+li {
+    color: red;
+}
+
+部分適用 タグに名前付け
+要素にclassを使って名前付け 下記の場合class名はselected
+CSS内のclass名の前に.が必要
+index.html
+<ul>
+    <li class="selected">HTML</li>
+    <li>PHP</li>
+    <li>Ruby</li>
+</ul> 
+
+stylesheet.css
+.selected {
+    color: red;
+}
+
+複数の要素に同じclassをつける タグには.不要 classには.必要
+index.html
+<ul>
+    <li class="selected">HTML</li>
+    <li class="selected">PHP</li>
+    <li>Ruby</li>
+</ul> 
+
+stylesheet.css
+li {
+    color: blue;
+}
+.selected {
+    color: red;
+}
+
+HTMLファイルの書き方
+<html>要素の中に<head>要素と<body>要素が必要
+<head>要素にはページに関する情報 <body>要素には実際に表示したい内容
+
+<!DOCTYPE html> <-DOCTYPE宣言 HTMLのバージョン宣言
+<html>
+    <head>
+    </head>
+    <body>
+    ...
+    </body>
+</html>
+
+<head>要素にはWebページの設定に関する情報を書く 3要素あり
+1文字コード指定 2ページのタイトル指定 3CSSの読み込み
+<head>
+    <meta charset="utf-8">
+    <titile>Progate</title>
+    <link rel="stylesheet" href="stylesheet.css">
+</head>
+
+1文字コード指定  文字化けを防止する
+<meta charset="utf-8">  HTMLで推奨されてるUTF-8に文字コード指定
+2ページタイトル指定  ページタイトルとしてブラウザのタブに表示
+3CSSの読み込み
+<link rel="stylesheet" href="stylesheet.css">
+rel="stylesheet" CSSファイルを読み込む宣言
+stylesheet.css   読み込むCSSのファイル名
+
+Webサイトのレイアウト
+ヘッダー メイン フッター
+レイアウトは<div>要素によって構成 div = division
+<div class="header">
+</div>
+<div class="main">
+</div>
+<div class="footer">
+</div>
+
+ヘッダー部分
+<div class="header">
+    <div class="header-logo">Progate</div>  ヘッダー部分のロゴの<div>要素
+    <div class="header-list">
+        <ul>
+            <li>プログラミングとは</li>
+            <li>細胞工学</li>
+            <li>お問合せ</li>
+        <ul>
+    </div>
+</div>
+
+Listの黒点の削除
+index.html
+<ul>
+    <li>黒点なし</li>
+    <li>黒点なし</li>
+<ul>
+stylesheet.css
+li {
+    list-style: none;
+}
+
+Listの横並び
+index.html
+<ul>
+    <li>黒点なし</li>
+    <li>黒点なし</li>
+<ul>
+stylesheet.css
+li {
+    list-style: none;
+    float: left;
+}
+
+要素に余白を導入
+index.html
+<div class="logo1">
+    Progate
+</div>
+
+.logo1 {
+    padding: 20px;  <-上下左右に20pxの余白を追加
+}
+
+padding-top: 値;
+padding-bottom: 値;
+padding-right: 値;
+padding-left: 値;
+
+3通り表現方法
+.logo1 {
+    padding-top: 20px;
+    padding-right: 10px;
+    padding-bottom: 20px;
+    padding-left: 10px;
+}
+
+.logo1 {
+    padding: 20px 10px 20px 10px;
+}     順にtop, right, bottom, left 時計回り
+
+.logo1 {
+    padding: 20px 10px;
+}   順にtop+bottom, right+left　上下 左右
+
+フッター部分
+index.html
+<div class="footer">
+    <div class="footer-logo">Progate</div>   ロゴの<div>要素
+    <div class="footer-list">                フッターのリストの<div>要素
+        <ul>
+            <li>会社概要</li>
+            ...
+        </ul>
+    </div>
+</div>
+
+問題 HeaderとFooterのlistに指示が重複する
+.クラス名 要素名 { 指示 }  クラス内の要素に支持するCSS
+.header-list li {
+
+}
+
+右に配置，左に配置
+.footer-logo {
+    float: left;
+}
+.footer-list {
+    float: right;
+}
+
+メイン部分
