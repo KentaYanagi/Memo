@@ -11,7 +11,7 @@ git add 選択したい変更のあるfilename
 
 4.選択したファイルをメッセージ付きで記録する(コミットする).共有する準備完了
 この時のメッセージはコミットメッセージという.
-git commit -m "Message"
+git commit -m Message
 
 5.リモート(リモートリポジトリ)にファイルをアップロードする
 
@@ -61,8 +61,8 @@ $ git status ファイルをaddしたのか把握する
     $
 
 コミットメッセージの書き方
-間違例  git commit -m "修正"
-正解例  git commit -m "サブタイトルの修正"
+間違例  git commit -m 修正
+正解例  git commit -m サブタイトルの修正
 
 $ git log   コミットメッセージ履歴の参照
 (eg)

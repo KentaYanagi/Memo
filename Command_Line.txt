@@ -55,12 +55,12 @@ mv = move ファイルを指定したディレクトリに移動する
 mv 移動するdirectoryname 移動先directoryname
 指定したディレクトリを指定したディレクトリに移動
 
-$ mv 現在のfilename 新しいfilename　　　　　　　名称変更
+$ mv 現在のfilename 新しいfilename           名称変更
 $ mv 現在のdirectoryname 新しいdirectoryname 名称変更
 
 $ cp コピーするfilename 新しいfilename cp = copy
 $ cp -r コビーするdirectoryname 新しいdirectoryname
 
-$rm 削除するfilename rm = remove ファイルの削除
-$rm -r 削除するdirectory         ディレクトリの削除
+ 削除するfilename rm = remove ファイルの削除
+ -r 削除するdirectory         ディレクトリの削除
 ~$ ↑ ↑は以前入力したコマンドの表示
