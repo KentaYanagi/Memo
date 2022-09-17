@@ -1,0 +1,67 @@
+1.Download Xcode.app from AppStore
+2.Create a new Xcode project
+3.Select iOS in Multipleplatform and select App in Application
+4.Push Next
+5.Enter a puroduct name or project name in Product Name
+6.Team select None
+7.Enter oeganization or individual ID in Organization Identifier
+ (When you are not going to publish app, you don't think a lot.
+ Enter an ID that is different from others' ID.)
+8.Bundle identifier 
+　It is used to distinguish apps. 
+  And it is created from Organization Identifier and Product name.
+9.Interface select SwiftUI (Storyboard was used before.)
+10.Life Cycle select SwiftUI App (UIkit App Delegate was used before.)
+11.Langage select Swift
+12.Core Data  Wheter you use Core Data(system that store data effeciently) or not
+13.Include Tests Whether you do test or not
+14.select Next
+15.select where you want to create files
+
+16.press resume to review of the app
+
+Swift released in 2014
+Character
+/decrease how ofen bugs happen
+/fast deal 
+
+Practice Swift
+File->New->Playground
+
+1Hello World
+print("Hello World")
+Console
+Hello World
+JavaやC#と異なり,;不要
+出力や文字列処理のためのライブラリをインポートする必要なし
+
+2変数と定数
+変数・定数 文字列や数値などの値を格納するためのもの
+変数 格納された値を変更可能
+定数 格納された値を変更不可能
+var 変数名 = 値 variable
+let 定数名 = 値
+var variable = 30
+variable = 60
+let constant = 60
+constant = 50   error:Cannot assign to value:'constant' is 'let' constant
+
+3型推論
+格納された値に応じて型を予測して,自動でつけてくれる機能
+変数や定数には型がある
+型:型は値の種類を分類するラベル
+Int型->整数の値
+String型->文字列の値
+type(of:型を知りたい値)
+var implicitInteger = 59
+print(type(of: implicitInteger))
+Console
+Int
+var implicitString = "りんご”
+print(type(of: implicitString))
+Console
+String
+
+4明示的な型
+型推論でなく,明示的に型をつけることが可能
+
