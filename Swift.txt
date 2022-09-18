@@ -282,4 +282,95 @@ for 変数 in シーケンス {
 eg. 配列,数値範囲(1~10,0~30)
 
 19for-in配列
-var 
+var names = ["太郎", "次郎", "三郎"]
+for name in names{   それぞれのループごとにnameに配列の値を格納
+    print(name)
+}
+Console
+太郎
+次郎
+三郎
+
+20for-in数値範囲
+for i in 1...10 {　　それぞれのループごとにiに1-10が格納
+    print(i)
+}
+Console
+1
+2
+...
+10
+...範囲演算子　閉区間
+//半開区間
+for i in 0...<10 {
+    print(i)
+}
+Console
+1
+2
+...
+9
+
+21関数
+処理をまとめたもの
+値を与えると処理を加えて値が出力される
+func 関数名(引数: 引数の型) -> 戻り値の型 {
+    return 戻り値
+}
+引数 関数に入力する値
+戻り値 関数が出力する値
+関数名(引数: 引数に入れる値)
+func Hellow(name: String) -> String{ nameという
+    return "こんにちは,/(name)さん!"
+}
+print(Hello(name: "もぎ"))
+Console
+こんにちは,もぎさん!
+
+22関数 複数引数 戻り値あり
+func 関数名(引数1: 引数1の型, 引数2: 引数2の型, 引数3: 引数3の型)　-> 戻り値の型 {
+    return 戻り値
+}
+funck Hello(name1: String, name2: String, name3: String) -> String {
+    return "こんにちは,\(name1)さん,\(name2)さん,\(name3)さん!"
+}
+print(Hello(name1: "もぎ", name2: "うつみ", name3: "たなか"))
+Console
+こんにちは，もぎさん，うつみさん，たなかさん！
+
+23関数 引数戻り値なし
+func 関数名() {
+    処理
+}
+func HelloWorld() {
+    print("Hello, World!")
+}
+HelloWorld()
+Console
+Hello, World!
+
+24クロージャー
+簡略化した，名前のない関数
+一度しか使わないなど，わざわざ関数を定義するまでもない場合に使う
+初見だとわかりにくい文法
+{(引数: 引数の型) -> 戻り値の型 in 戻り値}  クロージャーの設定
+クロージャーが格納された定数(引数)           クロージャーの実行
+let Hello = {(name: String) -> String in   定数を作って，定数にクロージャーを格納
+    return "コンにちは，\(name)さん!"         nameというString型の引数に，その引数を用いたString型の戻り値を
+}
+print(Hello("もぎ"))
+Console
+こんにちは,もぎさん！
+クロージャー引数省略可能
+let Hello = {() -> String in
+    return "こんにちは，田中さん！"
+}
+print(Hello())
+Console
+こんにちは，田中さん！
+クロージャー戻り値省略可能
+let Hello = {
+    print("こんにちは，田中さん！")
+}
+Hello()
+Console
