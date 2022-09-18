@@ -64,4 +64,222 @@ String
 
 4明示的な型
 型推論でなく,明示的に型をつけることが可能
+Character
+/初期値を指定したくない
+/そのほうがわかりやすいと感じる
+var 変数名: 型
+var 変数名: 型n= 値
+var explicitInteger: Int
+var explicitString: String = "ぷどう"
 
+5型変換
+変数や定数の型を別の型に変えること
+変換したい型(変換される変数)
+var label = "横幅: "
+var width = 80
+print(label + width)   
+ error: Binary operator '+' cannot be applied to operands of type 'String' and 'Int'
+var label = "横幅: "
+var width = 80
+print(label + String(width))  
+Console
+横幅: 80
+
+6文字列に変数を埋め込む
+\(埋め込みたい変数)
+var apple = 10
+print("私は\(apple)個のりんごを持っています")
+Console
+私は10個りんごを持っています
+
+7if 条件分岐
+条件分岐 条件に応じて異なる処理をする
+if 条件1 {
+    条件1の処理
+}
+else if {
+    条件2の処理
+}
+else {
+    それ以外条件の処理
+}
+var number = 30
+if number == 10 {
+    print(10)
+}
+else if number ==30 {
+    print(30)
+}
+else {
+    print("それ以外")
+}
+Console
+30
+
+8Switch
+条件分岐の文法
+ifとの違いは3つ以上の条件分岐をする際にコードが読みやすい
+他の言語ではそれぞれのケースにおいてbreakというブロックから抜ける記述が必要だが
+swiftでは不要
+switch 条件式 {
+    case 値1:
+        値1の処理
+    case 値2:
+        値2の処理
+    default:
+        それ以外の処理
+}
+var number = 290
+switch number {
+    case 10:
+        print(10)
+    case 30:
+        print(30)
+    default:
+        print("それ以外")
+}
+重複部分がなくなって見やすい!!
+
+9guard 
+予期しないことが起こったときに処理を中断する文法
+条件に一致しなかった時に処理を中断する文法
+ifでも同様のことが可能だが，可読性が上がる
+guard 条件 else {
+    条件に一致しなかった時の処理
+    return
+}
+条件に一致した時の処理
+var age = 18
+func Drink() {
+    guard age >= 20 else {
+        print("酒は飲めません")
+        return
+    }
+    print("一緒に酒を飲みましょう！")
+}
+Deink()
+Console
+一緒に酒を飲みましょう！
+わざわざguardを使う理由は
+関数かクロージャーの中でなければreturnを記述できないから
+
+10オプショナル型
+nilを入れることができるデータ型
+nil何もないことを表す記号
+既存の型(String,Int)からオプショナル型にすること　ラップする
+オプショナル型から既存の型を取り出すこと アンラップする
+let 定数名: Optional<型> = 型に対応した値  Optional型の記述
+let 定数名: 型?  Optional型の記述 シンタックスシュガー
+シンタックスシュガー 処理内容は同じで簡単な書き方
+
+11ラップ
+var optioanlInt: Int?
+print(optionalInt)
+Console
+nil
+var optioanlInt: Int? = 30
+print(optionalInt)
+Console
+Optional(30)    普通の値でなくオプショナルで包まれた値になる
+
+12強制的アンラップ
+値にnilが入っていても関係なしにアンラップする方法
+確実にnil以外の値が入っている時に使う
+オプショナル型の変数!
+コメントアウト select command /
+var optionalInt: Int? = 30
+print(optionalInt!)
+Console
+30
+
+13オプショナルバインディング
+ifやguardを使って，オプショナル型の値がnilかどうかで処理を分ける方法
+値がnilであってもうまく処理することができる
+比較的よく用いられる
+
+14オプショナルバインディングif　作った定数はifの中でしか使えない
+if let 定数名 = オプショナル型の変数 {
+    nilではない時の処理
+}
+else {
+    nilの時の処理
+}
+var optionalInt: Int? = 30          optionalIntというInt型の変数を作って30という値を格納しオプショナルで包み込む
+if let unwrapedInt = optionalInt {  optionalIntがnil以外であれば新しく定数を作ってアンラップした値を格納
+    print(unwrapedInt)
+}
+else {
+    print("unwrapedIntはnil)
+}
+Console
+30
+15オプショナルバインディングguard 作った定数をguardの外でも使うことができる
+guard let 定数名 = オプショナル型の変数 else {
+    nilの時の処理
+    return
+}
+nilではない時の処理
+var optionalInt: Int? = 20   optionalIntというInt型の変数を作って20という値を格納しオプショナルで包み込む
+func Unwrap() {    わざわざguardを使う理由は関数かクロージャーの中でなければreturnを使えないから
+    guard let unwrapedInt = optionalInt else {
+        print("unwrapedIntはnil")
+        return
+    }
+    print(unwrapedInt)
+}
+Unwrap()
+Console
+20
+
+16配列
+複数の値を格納できるデータ構造
+変数や定数に格納する値を[]で囲むだけ
+var 変数名 = [要素1, 要素2, 要素3]
+変数名[要素番号(>=0)]
+配列.append(追加する要素)
+var 変数名 = [配列の型]()
+var sports = ["サッカー", "テニス", "バスケ"]
+print(sports[1])
+sports.append("卓球")
+print(sports)
+var emptyArray = [String]()
+Console
+テニス
+["サッカー", "テニス", "バスケ", "卓球"]
+[]
+
+17辞書
+キーと値のペアを持つ複数の値を格納できるデータ構造のこと
+var 変数名 = [
+    キー: 値,
+    キー: 値,
+    キー: 値,
+]
+辞書名[追加するキー] = 追加する値
+var 変数名 = [キーの型: 値の型]()
+var occupations = [
+    "ヒロシ": "経営者"
+    "タツヒロ": "詩人"
+    "ヨシノブ": "数学者"
+]
+print(occupations["タツヒロ"]!)  辞書から値を取り出すときはoptional型になるのでアンラップ
+occupations[”ノブサダ"] = "哲学者"
+print(occupations)
+var emptydictionary = [String: Int]()
+print(emptyDictionary)
+Console
+詩人
+["ヒロシ": "経営者", "タツヒロ": "詩人", "ノブサダ": "哲学者", "ヨヒノブ": "数学者"]
+[:]
+辞書には順序を持たないので追加される位置がどこになるのか分からない
+
+18for-in
+繰り返し処理を行う文法
+for 変数 in シーケンス {
+    繰り返したい処理
+}
+シーケンス　複数の値で段階的に処理できるもの
+eg. 配列,数値範囲(1~10,0~30)
+
+19for-in配列
+var 
