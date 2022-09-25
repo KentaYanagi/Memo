@@ -24,6 +24,8 @@ git push リモートリポジトリ名 master
 8.6で登録したリモートリポジトリからプル(ダウンロードのこと)する
 git pull リモートリポジトリ名 master
 
+9.ブランチを
+
 まとめ　add -> commit -> push -> pull ->の循環
 
 実践版

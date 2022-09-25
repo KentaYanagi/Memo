@@ -28,7 +28,7 @@ ls -l ファイルやディレクトリの詳細も同時に表示
 
 ls -a 隠しファイルも含めファイルやディレクトリを全て表示する
 
-ls la 隠しファイルを含む全てのファイルやディレクトリの詳細を表示
+ls -la 隠しファイルを含む全てのファイルやディレクトリの詳細を表示
 
 *隠しファイルとは通常では表示されないファイルやディレクトリ
 重要なファイルをユーザが勝手にいじれないようになっている
@@ -52,6 +52,8 @@ mv = move ファイルを指定したディレクトリに移動する
 ~ $ mv index.txt bigenner
 ~ $
 
+mv test.html tmp/   相対パスでtmp/に移動する
+
 mv 移動するdirectoryname 移動先directoryname
 指定したディレクトリを指定したディレクトリに移動
 
@@ -61,6 +63,28 @@ $ mv 現在のdirectoryname 新しいdirectoryname 名称変更
 $ cp コピーするfilename 新しいfilename cp = copy
 $ cp -r コビーするdirectoryname 新しいdirectoryname
 
- 削除するfilename rm = remove ファイルの削除
+$ cp コピーするfilename 相対パス ファイルを相対パスのディレクトリの中にコピー
+$ cp test.html tmp/
+
+$ cp コピーするfilename 新しいfilename  指定するファイルを新しい名前でコピー
+$ cp test.py test2.py
+
+$ cp -r dir /tmp/  dirというディレクトリとその中身を絶対パスで/tmp/にそっくりコピー
+
+rm 削除するfilename rm = remove ファイルの削除
  -r 削除するdirectory         ディレクトリの削除
+ -f 警告なしで削除するfilename  警告なしファイルの削除
+ -rf 警告なしで削除するdirectoryname 警告なしディレクトリ削除
 ~$ ↑ ↑は以前入力したコマンドの表示
+
+open . 現在のターミナルのdirectoryをFinderで開く
+open ~/ homedirectoryをFinderで開く
+
+sourceコマンド  ファイルの設定を読み込み有効にする
+source ~/.bash_profile  homedirectoryにある.bash_profileに書き込んだ設定を読み込み有効に
+source .bash_profile    カレントディレクトリにある.bash_profileに書き込んだ設定を読み込み有効に
+
+history これまで実行してきたコマンド履歴を表示
+history -c これまで実行してきたコマンド履歴を消去
+
+https://qiita.com/ryouzi/items/73f63f09573b7b4e246c
