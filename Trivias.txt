@@ -1,2 +1,3 @@
 /消費電力W 電力Wh 電力これは文字的にノーマル 実際必要になる値も電力
 /Typhoon Ciclone Tornade Hurricane
+https://www.dictionary.com/e/typhoons-hurricanes-cyclones/

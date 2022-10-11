@@ -19,7 +19,7 @@ eg)
 ~ $ pwd
 /home/ipstap
 
-ls ls(エルエス) = list 
+ls ls(エルエス) = list segments
 current directory内部のファイル，ディレクトリが一覧で表示
 $ ls
 index.txt shinya

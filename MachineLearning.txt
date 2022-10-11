@@ -1,0 +1,7 @@
+QLearningについて
+第1回 強化学習の基礎　木村元 九州大学大学院工学研究室
+https://www.jstage.jst.go.jp/article/sicejl/52/1/52_72/_pdf
+趣味の強化学習 ACCESS
+https://qiita.com/ikeyasu/items/67dcddce088849078b85
+ゼロからDeepまで学ぶ強化学習
+https://qiita.com/icoxfog417/items/242439ecd1a477ece312

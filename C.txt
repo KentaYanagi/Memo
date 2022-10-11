@@ -1,0 +1,28 @@
+#include <stdio.h>          ヘッダーファイルの読み込み stdio.h(Standard Input/Output)
+                            標準の入出力のヘッダーファイル
+
+int main(void) {            main関数 最初に実行されるもの void = 空っぽ
+  printf("Hello World\n");  プログラム文, 末尾に;をつける \n;改行
+  return 0;                 main関数の最後につける return 0;関数を停止する
+}
+
+変数 = 数値や文字などを格納するための箱
+整数を格納するための箱: int型
+
+int n; 宣言 型がintでnの変数
+int: -2147483648(2^31) ~ 2147483647
+
+printf("b=%d c=%d\n", b, c);
+%d:10進数での読み込み
+
+scanf("%d", &n);
+
+#include <stdio.h>
+
+int main(void){
+    int n;
+    printf("Type in an integer;");
+    scanf("%d", &n);        %d 10進数で読み込み &代入したい変数
+    printf("n = %d\n", n); 
+    return 0;
+}
