@@ -1,0 +1,7 @@
+NyaAI
+https://ai.nya.la/
+1.Access this URL
+2.Tap Sign In
+3.Tap Generate Images
+4.Fill out Enter your prompt here
+5.If you want to create NSFW, choose Full.

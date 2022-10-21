@@ -1,0 +1,4 @@
+Shell
+UNIX/Linuxのターミナル(ktermなど)の中核(kernel)とユーザーが交信
+する時に，仲介するもの．kernelを覆っているイメージからshell.
+

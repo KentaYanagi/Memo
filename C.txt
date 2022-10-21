@@ -26,3 +26,20 @@ int main(void){
     printf("n = %d\n", n); 
     return 0;
 }
+
+Data Type
+/integer
+/decimal (floating point arithmetic)
+/letter 
+
+3point
+1.integer or decimal
+2.plus or minus
+3.precision
+
+1bit 0 or 1 2ways
+1Byte 8bit
+符号無 0~255 00001001=9
+符号有 -128~127 0なら正 1なら負 11111111=-1(128)
+
+
