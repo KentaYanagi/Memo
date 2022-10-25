@@ -21,7 +21,7 @@
 //Sleep関数 milli second
 //#include "windows.h" //これはまず使えない
 //この下代入してね！
-double t20= 6 ;
+int t20= 6000 ;
 double gg1=135.508111;
 double gg2=34.545111;
 
@@ -57,8 +57,8 @@ double ra, a;
 double a1,a2,a3,a4,a5,a6,a7,a8,a9;
 double ea12, ea23, ea34, ea45, ea56, ea67, ea78, ea89;
 double ca23,ca34,ca45,ca56,ca67,ca78,ca89;
-double t3,t4,t5,t6,t7,t8,t9;
-double tt3,tt4,tt5,tt6,tt7,tt8,tt9;
+int t3,t4,t5,t6,t7,t8,t9;
+int tt3,tt4,tt5,tt6,tt7,tt8,tt9;
 double r12,r23,r34;
 
 int main () {
@@ -67,7 +67,7 @@ int main () {
     AIN2 = 0;
     BIN1 = 0;
     BIN2 = 1;
-    wait(t20);
+    wait_ms(t20);
     return 0;
 }
 
@@ -82,7 +82,7 @@ int main () {
         if (gps.getgps()){  //GPSモジュールの機能確認
         motorStop();
         pc.printf("Started getting GPS_first\nWaiting for 5min\n");
-        wait(5);
+        wait_ms(5000);
         }
         else {
         pc.printf("Problem01\n");
@@ -102,9 +102,9 @@ int main () {
         }
         
         motorForward();      //移動30s
-        wait(30.0);
+        wait_ms(30000);
         motorStop();
-        wait(5);
+        wait_ms(5000);
         
         if (gps.getgps()) {  //方向認知のためのGPS取得
         g21=gps.latitude;
@@ -143,9 +143,9 @@ int main () {
         
         
         motorForward();   //移動30s
-        wait(30.0);
+        wait_ms(30000);
         motorStop();
-        wait(5);
+        wait_ms(5000);
             
         if (gps.getgps()) {   //誤差検知のためのGPS取得
         g31=gps.latitude;
@@ -215,17 +215,17 @@ int main () {
         tt3=ca32/360/20*t20; //Goal方向までの回転時間
 
         motorTurn();        //Goalまでの角度まで回転
-        wait(tt3);
+        wait_ms(tt3);
         motorStop();
 
 
-        t3=l3/l2*30;         //Goalまでの時間
+        t3=l3/l2*30000;         //Goalまでの時間
 
         motorForward();   //移動t3
-        wait(t3);
+        wait_ms(t3);
         motorStop();
 
-        wait(5);
+        wait_ms(5000);
         if(gps.getgps()) {   //予想Goal地点1でのGPS取得
         g41=gps.latitude;
         g42=gps.longitude;
@@ -305,17 +305,17 @@ int main () {
         tt4=ca32/360/20*t20; //Goal方向までの回転時間
 
         motorTurn();        //Goalまでの角度まで回転
-        wait(tt4);
+        wait_ms(tt4);
         motorStop();
 
 
         t4=l4/l3*t3;         //Goalまでの時間
 
         motorForward();   //移動t3
-        wait(t4);
+        wait_ms(t4);
         motorStop();
 
-        wait(5);
+        wait_ms(5000);
         if(gps.getgps()) {   //予想Goal地点1でのGPS取得
         g51=gps.latitude;
         g52=gps.longitude;
@@ -396,17 +396,17 @@ int main () {
         tt5=ca43/360/20*t20; //Goal方向までの回転時間
 
         motorTurn();        //Goalまでの角度まで回転
-        wait(tt5);
+        wait_ms(tt5);
         motorStop();
 
 
         t5=l5/l4*t4;         //Goalまでの時間
 
         motorForward();   //移動t3
-        wait(t5);
+        wait_ms(t5);
         motorStop();
 
-        wait(5);
+        wait_ms(5000);
         if(gps.getgps()) {   //予想Goal地点1でのGPS取得
         g61=gps.latitude;
         g62=gps.longitude;
