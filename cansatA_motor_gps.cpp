@@ -15,13 +15,13 @@
 //only GPS
 #include "getGPS.h"
 //統合試験
-#include "math.h"
+//#include "math.h"
 //Exit関数
-#include "stdlib.h"
-
-
+//#include "stdlib.h"
+//Sleep関数 milli second
+//#include "windows.h" //これはまず使えない
 //この下代入してね！
-double t20= ;
+double t20= 6 ;
 double gg1=135.508111;
 double gg2=34.545111;
 
@@ -42,7 +42,7 @@ void motorStop(void);
 void motorTurn(void);
 
 //地質により変動
-rt= 0.43; //rotate ∏/2 time
+double rt= 0.43; //rotate ∏/2 time
 
 double g11,g21,g31,g41,g51,g61,g71,g81,g91; //g1(着地地点） g2(スタート向き計測) g3(中間地点) g4(採取地点1) g5(中間地点) g6(採取地点2) g7(中間地点) g8(採取地点3）　g9(中間地点)
 double g12,g22,g32,g42,g52,g62,g72,g82,g92;
@@ -59,7 +59,7 @@ double ea12, ea23, ea34, ea45, ea56, ea67, ea78, ea89;
 double ca23,ca34,ca45,ca56,ca67,ca78,ca89;
 double t3,t4,t5,t6,t7,t8,t9;
 double tt3,tt4,tt5,tt6,tt7,tt8,tt9;
-
+double r12,r23,r34;
 
 int main () {
     STBY = 1;
@@ -76,26 +76,28 @@ int main () {
 int main () {
     
     
-while(1) {
+
     STBY = 1;
 
-        if (gos.getgps()){  //GPSモジュールの機能確認
+        if (gps.getgps()){  //GPSモジュールの機能確認
         motorStop();
-        pc.printf("位置情報データ取得開始\n5秒間待機中");
+        pc.printf("Started getting GPS_first\nWaiting for 5min\n");
         wait(5);
         }
         else {
-        pc.printf("問題発生01");
+        pc.printf("Problem01\n");
         exit(0);
         }
             
         if (gps.getgps()){   //落下地点のGPS取得
         g11=gps.latitude;
         g12=gps.longitude;
-        pc.printf("落下地点取得完了");
+        pc.printf("Complete getting GPS\n");
         }
         else {
-        pc.printf("問題発生02");
+        
+        
+        pc.printf("Problem02\n");
         exit(0);
         }
         
@@ -107,10 +109,12 @@ while(1) {
         if (gps.getgps()) {  //方向認知のためのGPS取得
         g21=gps.latitude;
         g22=gps.longitude;
-        pc.printf("方向認知地点取得完了");
+        pc.printf("Complete getting GPS_turn\n");
         }
         else {
-        pc.printf("問題発生03");
+        }
+        else {
+        pc.printf("Problem03\n");
         exit(0);
         }
         
@@ -146,10 +150,14 @@ while(1) {
         if (gps.getgps()) {   //誤差検知のためのGPS取得
         g31=gps.latitude;
         g32=gps.longitude;
-        pc.printf("誤差認知地点取得完了");
+        pc.printf("Complete getting GPS_recogError\n");
         }
         else {
-        pc.printf("問題発生04");
+        }
+        else {
+        }
+        else {
+        pc.printf("Problem04\n");
         exit(0);
         }
         
@@ -221,10 +229,14 @@ while(1) {
         if(gps.getgps()) {   //予想Goal地点1でのGPS取得
         g41=gps.latitude;
         g42=gps.longitude;
-        pc.printf("予想Goal地点1取得完了");
+        pc.printf("Complete getting GPS_goal1\n");
         }
         else {
-        pc.printf("問題発生05");
+        }
+        else {
+        }
+        else {
+        pc.printf("Problem05\n");
         exit(0);
         }
         
@@ -232,12 +244,12 @@ while(1) {
         //位置情報検証 地球の極半径を6356.752kmとする 1度=110.574km 1m=0.00000902956度  0.00000003634度の誤差
 
         if(g41>gg1-0.00000899322 && g41<gg1+0.00000899322 && g42>gg2-0.00000902956 && g42<gg2+0.00000902956){
-            pc.printf("Goal地点に到達しました");
+            pc.printf("Reached Goal\n");
             exit(0);
         }
         else {
-        pc.printf("Goal地点に到達できませんでした Goalに向けて再度移動します");
-        }   
+        pc.printf("Didn't reach Goal. Continue to move to Goal2\n");
+        }  
 
 
         sp31=g41-g31;   //誤差検出のためのベクトル検出
@@ -307,10 +319,16 @@ while(1) {
         if(gps.getgps()) {   //予想Goal地点1でのGPS取得
         g51=gps.latitude;
         g52=gps.longitude;
-        pc.printf("予想Goal地点2取得完了");
+        pc.printf("Complete getting GPS_goal2\n");
         }
         else {
-        pc.printf("問題発生06");
+        }
+        else {
+        }
+        else {
+        }
+        else {
+        pc.printf("Problem06\n");
         exit(0);
         }
         
@@ -318,11 +336,11 @@ while(1) {
         //位置情報検証 地球の極半径を6356.752kmとする 1度=110.574km 1m=0.00000902956度  0.00000003634度の誤差
 
         if(g51>gg1-0.00000899322 && g51<gg1+0.00000899322 && g52>gg2-0.00000902956 && g52<gg2+0.00000902956){
-            pc.printf("Goal地点に到達しました");
+            pc.printf("Complete moving to Goal2\n");
             exit(0);
         }
         else {
-        pc.printf("Goal地点に到達できませんでした Goalに向けて再度移動します 今度が最終です");
+        pc.printf("Didn't reach Goal2. Continue to move to Goal3. Next is the last.\n");
         }
         
         sp41=g51-g41;   //誤差検出のためのベクトル検出
@@ -392,10 +410,18 @@ while(1) {
         if(gps.getgps()) {   //予想Goal地点1でのGPS取得
         g61=gps.latitude;
         g62=gps.longitude;
-        pc.printf("予想Goal地点2取得完了");
+        pc.printf("Complete getting GPS_goal3\n");
         }
         else {
-        pc.printf("問題発生06");
+        }
+        else {
+        }
+        else {
+        }
+        else {
+        }
+        else {
+        pc.printf("Problem07\n");
         exit(0);
         }
         
@@ -403,16 +429,16 @@ while(1) {
         //位置情報検証 地球の極半径を6356.752kmとする 1度=110.574km 1m=0.00000902956度  0.00000003634度の誤差
 
         if(g61>gg1-0.00000899322 && g61<gg1+0.00000899322 && g62>gg2-0.00000902956 && g62<gg2+0.00000902956){
-            pc.printf("Goal地点に到達しました");
+            pc.printf("Reached Goal3\n");
             exit(0);
         }
         else {
-        pc.printf("Goal地点に到達できませんでした 終了します");
+        pc.printf("Didn't reach Goal3. Finished.\n");
         }
     return 0;
 }
 
-void motorFoward() {
+void motorForward() {
     motorStop();
     AIN1 = 1;
     AIN2 = 0;
