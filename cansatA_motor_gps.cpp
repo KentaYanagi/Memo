@@ -37,7 +37,7 @@ DigitalOut AIN2(A6);
 DigitalOut BIN1(A2);
 DigitalOut BIN2(A1);
 
-void motorFoward(void);
+void motorForward(void);
 void motorStop(void);
 void motorTurn(void);
 
@@ -113,7 +113,6 @@ int main () {
         }
         else {
         }
-        else {
         pc.printf("Problem03\n");
         exit(0);
         }
