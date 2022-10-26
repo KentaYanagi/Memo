@@ -113,7 +113,7 @@ int main () {
         pc.printf("Complete getting GPS_turn\n");
         }
         else {
-        }
+        
         pc.printf("Problem03\n");
         exit(0);
         }
@@ -121,7 +121,7 @@ int main () {
                         //方向検知のためのベクトル検知
         sp11=g21-g11; //sp11=self_posture_11 
         sp12=g22-g12;
-        l1=(sp11^2+sp12^2)^(1/2);
+        l1=sqrt(pow(sp11, 2.0)+pow(sp12, 2.0));
         cos1=sp11/l1;
         sin1=sp12/l1;
         ras1 = asin(sin1);
@@ -164,7 +164,7 @@ int main () {
                             //誤差検知のためのベクトル検出
         sp21=g31-g21; //sp11=self_posture_11
         sp22=g32-g22;
-        l2=(sp21^2+sp22^2)^(1/2);
+        l2=sqrt(pow(sp21, 2.0)+pow(sp22, 2.0));
         cos2=sp21/l2;
         sin2=sp22/l2;
         ras2 = asin(sin2);
@@ -191,7 +191,7 @@ int main () {
         sg31=gg1-g31;           //Goalまでのベクトル検出
         sg32=gg2-g32;
 
-        l3=(sg31^2+sg32^2)^(1/2); //Goalまでの距離
+        l3=sqrt(pow(sp31, 2.0)+pow(sp32, 2.0)); //Goalまでの距離
         cos3=sg31/l3;
         sin3=sg32/l3;
         ras3 = asin(sin3);
@@ -252,9 +252,9 @@ int main () {
         }  
 
 
-        sp31=g41-g31;   //誤差検出のためのベクトル検出
-        sp32=g42-g32;
-        l3=(sp31^2+sp32^2)^(1/2);
+        sp41=g41-g31;   //誤差検出のためのベクトル検出
+        sp42=g42-g32;
+        l3=sqrt(pow(sp41, 2.0)+pow(sp42, 2.0));;
         cos3=sp31/l3;
         sin3=sp32/l3;
         ras3 = asin(sin3);
@@ -281,7 +281,7 @@ int main () {
         sg41=gg1-g41;           //Goalまでのベクトル検出
         sg42=gg2-g42;
 
-        l4=(sg41^2+sg42^2)^(1/2); //Goalまでの距離
+        l4=sqrt(pow(sp41, 2.0)+pow(sp42, 2.0)); //Goalまでの距離
         cos4=sg41/l4;
         sin4=sg42/l4;
         ras4 = asin(sin4);
@@ -345,7 +345,7 @@ int main () {
         
         sp41=g51-g41;   //誤差検出のためのベクトル検出
         sp42=g52-g42;
-        l4=(sp41^2+sp42^2)^(1/2);
+        l4=sqrt(pow(sp41, 2.0)+pow(sp42, 2.0));
         cos4=sp41/l4;
         sin4=sp42/l4;
         ras4 = asin(sin4);
@@ -372,7 +372,7 @@ int main () {
         sg51=gg1-g51;           //Goalまでのベクトル検出
         sg52=gg2-g52;
 
-        l5=(sg51^2+sg52^2)^(1/2); //Goalまでの距離
+        l5=sqrt(pow(sp51, 2.0)+pow(sp52, 2.0));//Goalまでの距離
         cos5=sg51/l5;
         sin5=sg52/l5;
         ras5 = asin(sin5);
