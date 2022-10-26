@@ -40,6 +40,7 @@ DigitalOut BIN2(A1);
 void motorForward(void);
 void motorStop(void);
 void motorTurn(void);
+double a_ra (double);
 
 //地質により変動
 double rt= 0.43; //rotate ∏/2 time

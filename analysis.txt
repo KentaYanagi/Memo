@@ -1,3 +1,97 @@
 Variance 
 
 Regression analysis
+_
+explanatory variable(independent variable: Input)x
+object variable(dependent variable: Output)y
+y = beta0 + beta1x +epsilon
+_
+least-squares estimator:estimate coefficient
+by using datas(x1,y1),(x2,y2),...,(xn,yn)
+
+beta0 = 
+
+Partition of sum of squares
+St = Sr + Se: total sum of squares = Explained sum of squares + Residual sum of squares
+TSS y1,y2,y3,... ESS y1,  RSS 
+
+
+
+Course #04
+Survey of regression analysis and Student's t-distribution
+    _regressive model,
+    _lest-squares estimator,
+    _paertition of sum of squares,
+    _indicator of model adequacy
+
+_speculation about y (Confidence interval, Prediction interval)
+    Confidence interval: yの平均値の推定 Producer
+    Prediction interval: y自身の予測 Consumer
+    標準偏差の倍率は大まかに2
+_倍率を確立分布から厳密に定める
+    t分布, 自由度
+
+Regression analysis by Excel
+_Excelによる分析ツールの有効化
+_Excelによる回帰分析の実習と分析結果の解説
+_Excelによるyについての推測の実習
+
+重回帰分析
+_重回帰モデル,分析の元となるデータの解説
+_Excelでの実習(都道府県別の乗用車保有台数の分析)
+
+Survey of Regression analysis
+
+    explanatory variable(independent variable: Input)x
+    object variable(dependent variable: Output)y
+    y = beta0 + beta1x +epsilon
+
+    least-squares estimator:estimate coefficient
+    by using data(x1,y1),(x2,y2),...,(xn,yn)
+    hatbeta0 = 
+
+    Partition of sum of squares
+    St = Sr + Se:
+    Total sum of squares =
+    Explained sum of squares(回帰平方和) + Residual sum of squares(残差平方和)
+    TSS y1,y2,y3,... ESS y^1,y^2,y^3,... RSS e1,e2,e3,... 変動の大きさ
+
+    Incicator of Model adequacy
+    決定係数　R^2
+    R^2 = 1 - Se/ST = SR/ST 重相関係数Rはyk,y^kの相関係数
+    自由度調整済決定係数 R*^2
+    R*^2 = 1 - (Se/øe)/(ST/øT)
+    自由度はøT = n-1, øe = n-2 (回帰母数beta0, beta1の個数)
+
+Speculation about y (Confidence interval, Prediction interval)
+    Confidence interval: yの平均値の推定 Producer
+    Prediction interval: y自身の予測 Consumer
+    標準偏差の倍率は大まかに2
+    explanatory variable = x0, object variable = x1
+    信頼空間の両端は
+    (hatbeta0 + hatbeta1*x0) +- 2(Ve(1/n+{(xo-hatx)^2}/n*sx^2))^2
+    予測空間の両端は
+    (hatbeta0 + hatbeta1*x0) +- 2(Ve(1/n+{(xo-hatx)^2}/n*sx^2))^2
+    前回は倍率を確立分布から出す作業を省略
+
+母平均の信頼空間
+    標本平均x- の標準偏差は (v/n)^(1/2)
+        vは母分散(母集団の分散)　nはサンプルサイズ(データの個数)
+    母平均mの信頼空間の両端は
+    x- +- 倍率*(v/n)^(1/2)
+        倍率は標準正規分布N(0,1)と確立から客観的に
+        N(0,1)で中央の確立が0.95となる点はa=1.96
+        N(0,1)で中央の確立が0.9となる確率はb=1.645
+
+母分散が未知の時
+    母平均の信頼空間の両端を求められない
+    母分散vをデータから推定
+    偏差の
+
+
+
+
+
+
+区間の両端は
+
