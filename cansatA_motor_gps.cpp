@@ -57,11 +57,11 @@ double cos1,cos2,cos3,cos4,cos5,cos6,cos7,cos8,cos9;
 double ra, a;
 double a1,a2,a3,a4,a5,a6,a7,a8,a9;
 double ea12, ea23, ea34, ea45, ea56, ea67, ea78, ea89;
-double ca23,ca34,ca45,ca56,ca67,ca78,ca89;
+double ca32,ca43,ca54,ca65,ca67,ca78,ca89;
 int t3,t4,t5,t6,t7,t8,t9;
 int tt3,tt4,tt5,tt6,tt7,tt8,tt9;
 double r12,r23,r34;
-
+/*
 int main () {
     STBY = 1;
     AIN1 = 1;
@@ -71,7 +71,7 @@ int main () {
     wait_ms(t20);
     return 0;
 }
-
+*/
 
 
 int main () {
@@ -153,10 +153,6 @@ int main () {
         pc.printf("Complete getting GPS_recogError\n");
         }
         else {
-        }
-        else {
-        }
-        else {
         pc.printf("Problem04\n");
         exit(0);
         }
@@ -230,10 +226,6 @@ int main () {
         g41=gps.latitude;
         g42=gps.longitude;
         pc.printf("Complete getting GPS_goal1\n");
-        }
-        else {
-        }
-        else {
         }
         else {
         pc.printf("Problem05\n");
@@ -322,12 +314,6 @@ int main () {
         pc.printf("Complete getting GPS_goal2\n");
         }
         else {
-        }
-        else {
-        }
-        else {
-        }
-        else {
         pc.printf("Problem06\n");
         exit(0);
         }
@@ -411,14 +397,6 @@ int main () {
         g61=gps.latitude;
         g62=gps.longitude;
         pc.printf("Complete getting GPS_goal3\n");
-        }
-        else {
-        }
-        else {
-        }
-        else {
-        }
-        else {
         }
         else {
         pc.printf("Problem07\n");
