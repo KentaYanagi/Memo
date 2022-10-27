@@ -55,6 +55,10 @@ Survey of Regression analysis
     Total sum of squares =
     Explained sum of squares(回帰平方和) + Residual sum of squares(残差平方和)
     TSS y1,y2,y3,... ESS y^1,y^2,y^3,... RSS e1,e2,e3,... 変動の大きさ
+    TSS = k=1->n (yk - y-)2 目的変数の偏差 yk - y-
+    ESS = k=1->n (y^k - y-)2 予測量の偏差 y^k - y-
+    RSS = k=1->n (yk - y^k)2 目的変数の偏差 yk - y^k = ek
+    残差ekはなるべく少ない方がいいので TSSのうちのESSの割合が増加すれば妥当
 
     Incicator of Model adequacy
     決定係数　R^2
