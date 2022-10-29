@@ -1,5 +1,11 @@
 #include <stdio.h>          ヘッダーファイルの読み込み stdio.h(Standard Input/Output)
                             標準の入出力のヘッダーファイル
+math.hといったヘッダファイルにライブラリ関数(sin, cos)が格納
+stdio.hの
+ライブラリ関数 ptintf, scanf
+
+Replit.comではmath.hを含むとき,コンパイル時にオプション[-lm]が必要
+gcc hoge.c -lm
 
 int main(void) {            main関数 最初に実行されるもの void = 空っぽ
   printf("Hello World\n");  プログラム文, 末尾に;をつける \n;改行
@@ -41,5 +47,49 @@ Data Type
 1Byte 8bit
 符号無 0~255 00001001=9
 符号有 -128~127 0なら正 1なら負 11111111=-1(128)
+
+乱数のシード(種)
+乱数を発生させる基準
+シードが同じなら生成される乱数も毎回同じ
+
+乱数のシードの初期化
+プログラム実行のたびにシードの値をランダムに設定
+(一般的にはプログラム実行時の時刻)
+
+#include <stdio.h>  //毎回同じ乱数が出る
+#include <stdlib.h>
+
+int main(void){
+  int a,i;
+  for(i=0; i<10; i++){
+    a=rand(); //乱数の値の範囲(0~RAND_MAX)
+    printf("%d\n", a);
+  }
+  return 0;
+}
+
+#include <stdio.h>  //毎回こたなる乱数が出る
+#include <stdlib.h>
+#include <time.h>
+
+int main(void){
+  int a,i;
+  srand((unsigned int)time(NULL));
+  for(i=0; i<10; i++){
+    a = rand();
+    printf("%d\n",a);
+  }
+  return 0;
+}
+
+
+header file 情報
+stdlib.h
+rand()ランダム関数
+math.h
+sin(),cos(),tan(),asin(),acos(),atan()
+stdio.h
+time()
+
 
 
