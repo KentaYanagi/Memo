@@ -96,3 +96,14 @@ Add, commit, and push your changes
 ~ $ git commit -m "Initial commit"
 ~ $ git push -u origin main
 4.Fire up a browser and go to https://username.github.io
+
+Errors
+error: failed to push some refs to 'https://github.com/KentaYanagi/PrivateNotes.git'
+%git config pull.rebase true
+nothing
+%git pull origin main
+current branch main is up to date.
+%git fetch
+%git push origin main
+
+Solve problems
