@@ -88,3 +88,5 @@ history これまで実行してきたコマンド履歴を表示
 history -c これまで実行してきたコマンド履歴を消去
 
 https://qiita.com/ryouzi/items/73f63f09573b7b4e246c
+
+find ./ -type f -name "*.bin" -delete // delete particular filetype
