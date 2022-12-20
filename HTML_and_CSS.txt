@@ -1,4 +1,5 @@
-1タグ付 開始タグと終了タグが必要
+改行もインデントも,スペースも無影響　(ただし，a hrefではスペースは1つ以上必要)
+1タグ 開始タグと終了タグが必要
 <h1> 見出し  h = heading
 <a> リンク
 <a href="リンク先のURL">リンクに表示されてる文字</a>
@@ -49,9 +50,16 @@ colorプロパティ       色           #0000ff
 font-sizeプロパティ   文字の大きさ   10px
 font-familyプロパティ フォント名     serif "Avenir Next"
                                     スペースがあるときは"""
-background-colorプロパティ 背景色 #dddddd これは省略可#ddd #ffd800
+background-colorプロパティ 背景色 #dddddd 同じ文字が続く時は省略可#ddd #ffd800
 widthプロパティ  図，テキストボックスの幅  500px
-heightプロパティ 図，テキストボックスの高  20px
+heightプロパティ 図，テキストボックスの高  200px
+
+color, background-color
+#ff0000 = red, #0000ff = blue
+#dddddd = #ddd(gray), #ffd800(yellow)
+#9de8ae(light blue)
+明朝体: serif, YuMincho  ゴシック体: sans-serif, "Lucida Grande"
+その他: Avenir Next
 
 2どうするか
 明朝体
@@ -93,7 +101,7 @@ index.html
 </ul> 
 
 stylesheet.css
-.selected {
+.selected {  /*HTMLのみが赤色*/
     color: red;
 }
 
@@ -107,10 +115,10 @@ index.html
 
 stylesheet.css
 li {
-    color: blue;
+    color: blue;  //Rubyは青色
 }
 .selected {
-    color: red;
+    color: red;  //HTML, PHPは赤色
 }
 
 HTMLファイルの書き方
@@ -118,6 +126,7 @@ HTMLファイルの書き方
 <head>要素にはページに関する情報 <body>要素には実際に表示したい内容
 
 <!DOCTYPE html> <-DOCTYPE宣言 HTMLのバージョン宣言
+                /*!DOCTYPE htmlは最新のHTMLバージョン*/
 <html>
     <head>
     </head>
@@ -145,6 +154,7 @@ stylesheet.css   読み込むCSSのファイル名
 Webサイトのレイアウト
 ヘッダー メイン フッター
 レイアウトは<div>要素によって構成 div = division
+要素をグループ化するためのもの
 <div class="header">
 </div>
 <div class="main">
